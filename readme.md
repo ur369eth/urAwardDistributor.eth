@@ -1,6 +1,6 @@
-# RewardDistributor Contract
+# AwardDistributor Contract
 
-This contract is used to distribute rewards to different addresses based on a percentage. The contract is only accessible by the owner.
+This contract is used to distribute awards to different addresses based on a percentage. The contract is only accessible by the owner.
 
 ## Functions
 
