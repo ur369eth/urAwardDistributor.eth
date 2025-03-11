@@ -43,7 +43,7 @@ The contract has been tested using Truffle Suite and Ganache. The tests are loca
 
 ## Deployment
 
-The contract has been deployed on the Rinkeby test network. The address of the contract is `0x...`.
+The contract has been deployed on the ethereum mainnet. The address of the contract is `0x661ae8ab07242bedcd19c8c189287ebeb96093c4`.
 
 ## License
 
