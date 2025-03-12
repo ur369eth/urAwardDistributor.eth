@@ -4,25 +4,25 @@ This contract is used to distribute awards to different addresses based on a per
 
 ## Functions
 
-### distributeEth
+### DistributeEth
 
 Distribute the native currency (ETH) to the different addresses based on a percentage.
 
 - `onlyOwner`: Only the owner of the contract can call this function.
 
-### distributeERC20
+### DistributeERC20
 
 Distribute an ERC20 token to the different addresses based on a percentage.
 
 - `onlyOwner`: Only the owner of the contract can call this function.
 
-### donateAndDistribute
+### DonateAndDistribute
 
 Donate native currency (ETH) to the contract and distribute it to the different addresses based on a percentage.
 
 - Anyone can call this function.
 
-### donateAndDistributeERC20
+### DonateAndDistributeERC20
 
 Donate an ERC20 token to the contract and distribute it to the different addresses based on a percentage.
 
