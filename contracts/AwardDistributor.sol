@@ -1,3 +1,11 @@
+/**
+ *Submitted for verification at Etherscan.io on 2025-06-01
+*/
+
+/**
+ *Submitted for verification at Etherscan.io on 2025-01-16
+ */
+
 // File: @openzeppelin/contracts/utils/Context.sol
 
 // OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)
@@ -229,13 +237,13 @@ interface IERC20 {
 pragma solidity ^0.8.20;
 
 contract AwardDistributor is Ownable {
-    address public immutable ur369gifthAddress_30 =
+    address public immutable urGiftETHAddress =
         0x70C819445c6Bb5a144954818DE138b4A713408dC; // 30%
-    address public immutable ur369impactAddress_30 =
+    address public immutable urImpactETHAddress =
         0x22357B3034DF4a65a00E5887aFB09e94Df17B7B9; // 30%
-    address public immutable ur369Address_30 =
-        0x4eb401801b42139737faC676C5da5e43F6A1A828; // 30%
-    address public immutable ur369devsncomAddress_10 =
+    address public immutable ur369SelfSustainETHAddress =
+        0xC1A9F71A47448010c9ac58bDEb7b5e154dDD848d; // 30%
+    address public immutable ur369CommunityDevETHAddress =
         0xDB0ccF145A929c48277a4431004D633E9D84258a; // 10%
 
     constructor() Ownable(msg.sender) {}
@@ -247,10 +255,10 @@ contract AwardDistributor is Ownable {
             uint256 thirtyPercent = (nativeCurrency * 30) / 100;
             uint256 remaining = nativeCurrency - (thirtyPercent * 3);
 
-            payable(ur369gifthAddress_30).transfer(thirtyPercent); // 30%
-            payable(ur369impactAddress_30).transfer(thirtyPercent); // 30%
-            payable(ur369Address_30).transfer(thirtyPercent); // 30%
-            payable(ur369devsncomAddress_10).transfer(remaining); // 10%
+            payable(urGiftETHAddress).transfer(thirtyPercent); // 30%
+            payable(urImpactETHAddress).transfer(thirtyPercent); // 30%
+            payable(ur369SelfSustainETHAddress).transfer(thirtyPercent); // 30%
+            payable(ur369CommunityDevETHAddress).transfer(remaining); // 10%
         }
     }
 
@@ -262,7 +270,7 @@ contract AwardDistributor is Ownable {
         // Distribute ERC20 tokens
         require(
             tokenAddresses.length == amounts.length,
-            "RewardDistributor: Amount for each token in not entered"
+            "AwardDistributor: Amount for each token in not entered"
         );
         for (uint i = 0; i < tokenAddresses.length; i++) {
             uint256 amountToDistribute = amounts[i];
@@ -270,7 +278,7 @@ contract AwardDistributor is Ownable {
 
             require(
                 amountToDistribute > 0,
-                "RewardDistributor: Invalid amount"
+                "AwardDistributor: Invalid amount"
             );
 
             uint256 thirtyPercent = (amountToDistribute * 30) / 100;
@@ -279,34 +287,34 @@ contract AwardDistributor is Ownable {
             require(
                 IERC20(tokenAddress).transferFrom(
                     sender,
-                    ur369gifthAddress_30,
+                    urGiftETHAddress,
                     thirtyPercent
                 ),
-                "RewardDistributor: TransferFrom Failed."
+                "AwardDistributor: TransferFrom Failed."
             ); // 30%
             require(
                 IERC20(tokenAddress).transferFrom(
                     sender,
-                    ur369impactAddress_30,
+                    urImpactETHAddress,
                     thirtyPercent
                 ),
-                "RewardDistributor: TransferFrom Failed."
+                "AwardDistributor: TransferFrom Failed."
             ); // 30%
             require(
                 IERC20(tokenAddress).transferFrom(
                     sender,
-                    ur369Address_30,
+                    ur369SelfSustainETHAddress,
                     thirtyPercent
                 ),
-                "RewardDistributor: TransferFrom Failed."
+                "AwardDistributor: TransferFrom Failed."
             ); // remaining
             require(
                 IERC20(tokenAddress).transferFrom(
                     sender,
-                    ur369devsncomAddress_10,
+                    ur369CommunityDevETHAddress,
                     remaining
                 ),
-                "RewardDistributor: TransferFrom Failed."
+                "AwardDistributor: TransferFrom Failed."
             ); // 10%
         }
     }
@@ -318,10 +326,10 @@ contract AwardDistributor is Ownable {
             uint256 thirtyPercent = (nativeCurrency * 30) / 100;
             uint256 remaining = nativeCurrency - (thirtyPercent * 3);
 
-            payable(ur369gifthAddress_30).transfer(thirtyPercent); // 30%
-            payable(ur369impactAddress_30).transfer(thirtyPercent); // 30%
-            payable(ur369Address_30).transfer(thirtyPercent); // 30%
-            payable(ur369devsncomAddress_10).transfer(remaining); // 10%
+            payable(urGiftETHAddress).transfer(thirtyPercent); // 30%
+            payable(urImpactETHAddress).transfer(thirtyPercent); // 30%
+            payable(ur369SelfSustainETHAddress).transfer(thirtyPercent); // 30%
+            payable(ur369CommunityDevETHAddress).transfer(remaining); // 10%
         }
     }
 
@@ -329,7 +337,7 @@ contract AwardDistributor is Ownable {
         address tokenAddress,
         uint256 _amount
     ) external {
-        require(_amount != 0, "RewardDistributor: Invalid Amount");
+        require(_amount != 0, "AwardDistributor: Invalid Amount");
         address sender = msg.sender;
 
         uint256 thirtyPercent = (_amount * 30) / 100;
@@ -338,34 +346,34 @@ contract AwardDistributor is Ownable {
         require(
             IERC20(tokenAddress).transferFrom(
                 sender,
-                ur369gifthAddress_30,
+                urGiftETHAddress,
                 thirtyPercent
             ),
-            "RewardDistributor: TransferFrom Failed."
+            "AwardDistributor: TransferFrom Failed."
         ); // 30%
         require(
             IERC20(tokenAddress).transferFrom(
                 sender,
-                ur369impactAddress_30,
+                urImpactETHAddress,
                 thirtyPercent
             ),
-            "RewardDistributor: TransferFrom Failed."
+            "AwardDistributor: TransferFrom Failed."
         ); // 30%
         require(
             IERC20(tokenAddress).transferFrom(
                 sender,
-                ur369Address_30,
+                ur369SelfSustainETHAddress,
                 thirtyPercent
             ),
-            "RewardDistributor: TransferFrom Failed."
+            "AwardDistributor: TransferFrom Failed."
         ); // remaining
         require(
             IERC20(tokenAddress).transferFrom(
                 sender,
-                ur369devsncomAddress_10,
+                ur369CommunityDevETHAddress,
                 remaining
             ),
-            "RewardDistributor: TransferFrom Failed."
+            "AwardDistributor: TransferFrom Failed."
         ); // 10%
     }
 }
